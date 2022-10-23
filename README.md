@@ -1,10 +1,11 @@
 # um_dos
 
-A new Flutter project.
+Meu primeiro projeto com o Flutter!!!
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
+I'll create a simple app where you can make sums with two numbers.
 
 A few resources to get you started if this is your first Flutter project:
 
