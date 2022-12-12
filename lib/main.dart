@@ -40,6 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _efetuar() {
+    _sum = soma(_a, _b);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,46 +58,33 @@ class _MyHomePageState extends State<MyHomePage> {
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.numbers),
                   labelText: 'Primeiro',
-                  border: OutlineInputBorder(),
                 ),
-                onSaved: (String? value) {
-                  // This optional block of code can be used to run
-                  // code when the user saves the form.
-                },
-                validator: (String? value) {
-                  return (value != null && value.contains('@'))
-                      ? 'Do not use the @ char.'
-                      : null;
-                },
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                onSaved: (String? value) {},
               ),
               TextFormField(
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
-                  icon: Icon(Icons.numbers),
                   labelText: 'Segundo',
-                  border: OutlineInputBorder(),
                 ),
-                onSaved: (String? value) {
-                  // This optional block of code can be used to run
-                  // code when the user saves the form.
-                },
-                validator: (String? value) {
-                  return (value != null && value.contains('@'))
-                      ? 'Do not use the @ char.'
-                      : null;
-                },
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                onSaved: (String? value) {},
               ),
               Container(
                 height: 50,
                 width: 250,
                 decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(10)),
                 child: FloatingActionButton(
                   onPressed: () {
-                    print('Efetuado')
+                    print('Efetuado');
+                    _efetuar;
                   },
                   child: Text(
                     'Efetuar',
